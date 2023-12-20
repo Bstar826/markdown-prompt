@@ -14,11 +14,8 @@ export default function Home() {
   const fileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
 
-    // Check if a file has been selected
     if (file) {
-      // Check if the file is a Markdown or text file
       if (file.type === "text/markdown" || file.type === "text/plain") {
-        // Read the contents of the file
         const reader = new FileReader()
         reader.onload = (e) => {
           const content = e.target?.result
@@ -28,7 +25,6 @@ export default function Home() {
         }
         reader.readAsText(file, "utf-8")
       } else {
-        // Display an error message to the user
         alert("Please select a Markdown or text file.")
       }
     }
